@@ -2,11 +2,11 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class TaskGenerator {
+class GraphGenerator {
 	
 	Random rnd = new Random();
 	
-	public void simpleTask(int vertex, int edge, int query) {
+	public void simpleGraph(int vertex, int edge, int query) {
 		PrintWriter printer = new PrintWriter(System.out);
 		
 		printer.print(vertex + " " + edge + "\n");
@@ -33,10 +33,10 @@ class TaskGenerator {
 	}
 	
 	public static void main (String[] args) throws java.lang.Exception {
-		TaskGenerator tg = new TaskGenerator();
+		GraphGenerator tg = new GraphGenerator();
 		int vertex = Integer.valueOf(args[0]);
 		int edge = Integer.valueOf(args[1]);
 		int query = Integer.valueOf(args[2]);
-		tg.simpleTask(vertex, edge, query);
+		tg.simpleGraph(vertex, edge, query);
 	}
 }
