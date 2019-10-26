@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class GraphGenerator {
+class TreeGenerator {
 	
 	Random rnd = new Random();
 
@@ -67,7 +67,7 @@ class GraphGenerator {
 	}
 	
 	public static void main (String[] args) throws java.lang.Exception {
-		GraphGenerator tg = new GraphGenerator();
+		TreeGenerator tg = new TreeGenerator();
 		int vertex = Integer.valueOf(args[0]);
 		int root = Integer.valueOf(args[1]);
 		int query = Integer.valueOf(args[2]);

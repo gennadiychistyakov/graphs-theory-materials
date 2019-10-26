@@ -1,5 +1,6 @@
 import os
 
+
 os.system("javac Solver.java")
 
 for root, dirs, files in os.walk(".", topdown = False):
