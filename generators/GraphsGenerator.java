@@ -149,6 +149,31 @@ class GraphsGenerator {
 		printer.flush();
 	}
 
+	public void simpleGraphWithVWeights(int vertex, double density) {
+		PrintWriter printer = new PrintWriter(System.out);
+		
+		int edge = (int) (density * vertex * (vertex - 1) / 2);
+		printer.print(vertex + " " + edge + "\n");
+
+		for(int i = 0; i < vertex; i++)
+			printer.print((rnd.nextInt(100) + 1) + " ");
+		printer.print("\n");
+		
+		boolean graph[][] = new boolean[vertex][vertex];
+		
+		while (edge > 0) {
+			int x = rnd.nextInt(vertex), y = rnd.nextInt(vertex);
+			if ((x != y) && (graph[x][y] == false)) {
+				printer.print((x + 1) + " " + (y + 1) + "\n");
+				graph[x][y] = true;
+				graph[y][x] = true;
+				edge--;
+			}
+		}
+		
+		printer.flush();
+	}
+
 	public void spanningTreeGraph(int vertex, int edge) {
 		PrintWriter printer = new PrintWriter(System.out);
 		
@@ -206,6 +231,12 @@ class GraphsGenerator {
 				int edge = Integer.valueOf(args[2]);
 				int query = Integer.valueOf(args[3]);
 				gg.simpleGraphWithSizeAndQueries(vertex, edge, query, false);
+				break;
+			}
+			case "simplegraphwvw": {
+				int vertex = Integer.valueOf(args[1]);
+				double destiny = Double.valueOf(args[2]);
+				gg.simpleGraphWithVWeights(vertex, destiny);
 				break;
 			}
 			case "simplegraphreach": {
